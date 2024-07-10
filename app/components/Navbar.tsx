@@ -20,8 +20,8 @@ export default function Navbar() {
                 </div>
                 <div>
                     <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                      <Link href="/home" prefetch className={`${
-                        pathname=="/home"
+                      <Link href="/" prefetch className={`${
+                        pathname=="/"
                          ? "border-teal-500 dark:text-white h-full inline-flex items-center px-1  border-b-2 text-lg font-medium": "border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium "  }`}>Home
                       </Link>
                       <Link href="/projects" prefetch className={`${

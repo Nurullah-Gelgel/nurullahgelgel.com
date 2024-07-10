@@ -1,19 +1,17 @@
 import Image from "next/image";
-import Nurullah from "../public/pexels-pixabay-164338.jpg";
+import Nurullah from "../public/me.jpeg";
 export default function Home() {
   return (
     <div className="divide-y divide-gray-100 dark:divide-gray-700">
       <div className="space-y-2 pt-5 pb-8 md:space-x-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl
-        sm:leading-10 md:text-6xl md:leading-13 ">Home </h1>
+        {/* <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl
+        sm:leading-10 md:text-6xl md:leading-13 ">Home </h1> */}
       </div>
       <div className="items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
         <div className="flex flex-col items-center pt-8">
           <Image alt="Picture of Nurullah Gelgel" src={Nurullah} className="h-48 w-48 rounded-full object-cover object-top" />
           <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">Nurullah Gelgel</h3>
-          <p className="text-gray-500 dark:text-gray-300 text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum tenetur eum excepturi,
-            fugit minima sint, eos quasi, adipisci deserunt repellat delectus expedita exercitationem ex consectetur. Alias
-            magni totam optio ullam!</p>
+          <p className="text-gray-500 dark:text-gray-300 text-center">Junior Software Engineer</p>
           <div className="flex space-x-5 pt-6">
             <a href="" target="blank"> <svg
               viewBox="0 0 1024 1024"
@@ -40,15 +38,11 @@ export default function Home() {
         </div>
         <div className="prose max-w-none prose-lg pt-8 pb-7 dark:prose-invert xl:col-span-2 ">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum tenetur eum excepturi, fugit minima sint,
-             eos quasi, adipisci deserunt repellat delectus expedita exercitationem ex consectetur. Alias magni totam
-              optio ullam!
-              
+          I’m a versatile software developer who’s relatively new to the software industry. If I had to introduce myself, I am open to learning new things and enjoys working with different technologies. To summarize my technical skills, I gained experience in Java and JavaScript languages, relational databases and data structures, thanks to the numerous web-based applications I developed using Spring Boot and React.js in the first three years of my school. 
+
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum tenetur eum excepturi, fugit minima sint, 
-            eos quasi, adipisci deserunt repellat delectus expedita exercitationem ex consectetur. Alias magni totam 
-            optio ullam!
+          I joined Ford Otosan in my last year at university. During my professional experience at Ford Otosan, I contributed to various projects involving .Net Core, SQL, PL/SQL and JavaScript. I worked on developing scalable web applications, managing databases, and creating user interfaces. I also learned how to work as a scrum team. Eager to improve my skills, and I actively seek a dynamic environment to further develop my programming expertise.
             </p>
 
             </div>
