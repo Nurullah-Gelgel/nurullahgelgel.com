@@ -38,12 +38,14 @@ export default async function Projects() {
             <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {data.map((project) => (
                     <article key={project._id} className="overflow-hidden rounded-lg border border-gray-700 shadow-lg transition-transform transform hover:-translate-y-1">
-                        
+
                         <div className="p-6">
                             <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
                                 <h3 className="text-xl font-semibold mb-2 text-teal-400">{project.title}</h3>
                             </a>
-                            <p className="text-gray-400 mb-4">{project.overview}</p>
+                            {project.overview.split(/(?<=[.!?])\s+/).map((sentence, index) => (
+                                <p key={index}>{sentence}</p>
+                            ))}
                             <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-teal-500 hover:text-teal-300">
                                 Learn more
                                 <span className="ml-1">&rarr;</span>
