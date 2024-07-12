@@ -1,2 +1,4 @@
+import experiences from './experiences.js'
 import project from './project.js'
-export const schemaTypes = [project]
+import userInfo from './userInfo.js'
+export const schemaTypes = [project, userInfo, experiences]
