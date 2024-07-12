@@ -34,7 +34,7 @@ export default async function Experience() {
     console.log("data", data);
     return (
         <div className=" p-10 mt-32 mb-16">
-            <h1 className="text-3xl font-bold mb-5">Where I've Worked</h1>
+            <h1 className="text-3xl font-bold mb-5">Where I`ve Worked</h1>
             <div className="flex flex-col md:flex-row">
                 <div className="flex flex-col md:w-1/4">
                     {data.map((exp) => (
