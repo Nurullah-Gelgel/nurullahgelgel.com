@@ -1,5 +1,4 @@
 import { client } from "../lib/sanity";
-
 interface Data {
     _createdAt: string;
     _type: string;
@@ -32,6 +31,12 @@ company
 export default async function Experience() {
     const data: Data[] = await getExperiences();
     console.log("data", data);
+
+    // Regex kullanarak cümleleri ayıran fonksiyon
+    const splitSentences = (text: string) => {
+        return text.match(/[^\.!\?]+[\.!\?]+(?:\s|$)/g) || [];
+    };
+
     return (
         <div className=" p-10 mt-32 mb-16">
             <h1 className="text-3xl font-bold mb-5">Where I`ve Worked</h1>
@@ -49,8 +54,8 @@ export default async function Experience() {
                             <h3 className="text-xl font-semibold text-teal-400">{exp.position} @ <span className="text-teal-500">{exp.company}</span></h3>
                             <p className="mb-2">{exp.startDate} - {exp.endDate}</p>
                             <ul className="list-disc list-inside space-y-2 ">
-                                {exp.overview.split('\n').map((line, index) => (
-                                    <li key={index}>{line}</li>
+                                {splitSentences(exp.overview).map((sentence, index) => (
+                                    <li key={index}>{sentence.trim()}</li>
                                 ))}
                             </ul>
                         </div>
