@@ -26,7 +26,7 @@ overview,
 _createdAt,
 _type,
 about,
-technolgies,
+technologies,
 _id,
 _updatedAt,
 title
