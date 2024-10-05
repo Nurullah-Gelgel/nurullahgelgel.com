@@ -54,10 +54,10 @@ function ProjectCard({ project }: { project: Data }) {
                     </a>
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow overflow-hidden">
-                    <span className="line-clamp-9">{project.overview}</span>
+                    <span className="line-clamp-8">{project.overview}</span>
                 </p>
             </div>
-            <div className="p-1 mt-auto bg-gray-100 dark:bg-gray-700">
+            <div className=" mt-auto bg-gray-100 dark:bg-gray-700">
                 <a href={project.link} 
                    target="_blank" 
                    rel="noopener noreferrer" 
