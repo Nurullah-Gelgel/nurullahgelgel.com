@@ -54,7 +54,7 @@ function ProjectCard({ project }: { project: Data }) {
                     </a>
                 </h3>
                 <p className="text-gray-800 dark:text-gray-300 mb-4 flex-grow overflow-hidden">
-                    <span className="line-clamp-4">{project.overview}</span>
+                    <span className="line-clamp-9">{project.overview}</span>
                 </p>
             </div>
             <div className="p-4 mt-auto">
