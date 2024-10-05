@@ -15,16 +15,16 @@ interface Data {
 async function getExperiences() {
     const query = `
     *[_type == "experience"] {
-  endDate,
-_createdAt,
-position,
-startDate,
-_id,
-_updatedAt,
-overview,
-_type,
-company
-}`;
+        endDate,
+        _createdAt,
+        position,
+        startDate,
+        _id,
+        _updatedAt,
+        overview,
+        _type,
+        company
+    }`;
     const data = await client.fetch(query);
     return data;
 }
@@ -33,14 +33,15 @@ export default async function Experience() {
     const data: Data[] = await getExperiences();
     console.log("data", data);
 
-    // Regex kullanarak cümleleri ayıran fonksiyon, ".NET" gibi kısaltmalara dikkat eder
+    // Metni '-' işaretine göre ayıran fonksiyon
     const splitSentences = (text: string) => {
-        return text.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [text]; // Nokta, ünlem, soru işareti ile biten cümleleri ayır
+        // Metni '-' işaretine göre ayır
+        return text.split(/-\s*/).map(sentence => sentence.trim()).filter(Boolean);
     };
 
     return (
         <div className="p-10 mt-32 mb-16">
-            <h1 className="text-3xl font-bold mb-5">Where I`ve Worked</h1>
+            <h1 className="text-3xl font-bold mb-5">Where I’ve Worked</h1>
             <div className="flex flex-col md:flex-row">
                 <div className="flex flex-col md:w-1/4">
                     {data.map((exp) => (
@@ -56,7 +57,7 @@ export default async function Experience() {
                             <p className="mb-2">{exp.startDate} - {exp.endDate || "Present"}</p>
                             <ul className="list-disc list-inside space-y-2">
                                 {splitSentences(exp.overview).map((sentence, index) => (
-                                    <li key={index}>{sentence.trim()}</li>
+                                    <li key={index}>{sentence}</li>
                                 ))}
                             </ul>
                         </div>
