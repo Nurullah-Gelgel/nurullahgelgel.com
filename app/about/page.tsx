@@ -47,7 +47,7 @@ export default async function About() {
             alt="Profile Picture"
             width={200}
             height={200}
-            className="rounded-lg"
+            className="rounded-lg shadow-md dark:shadow-gray-700"
           />
         </div>
         <div className="md:col-span-2 space-y-5">
