@@ -45,8 +45,8 @@ export default function Navbar() {
                   offset={50}
                   duration={500}
                   className={`${pathname == "../experience/page"
-                      ? "border-teal-500 cursor-pointer text-gray-300 mt-3 dark:text-white h-full inline-flex items-center px-1 border-b-2 text-lg font-medium"
-                      : "border-transparent cursor-pointer mt-3 text-white dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium"
+                      ? "border-teal-500 cursor-pointer text-gray-200 mt-3 h-full inline-flex items-center px-1 border-b-2 text-lg font-medium"
+                      : "border-transparent cursor-pointer mt-3 text-white dark:text-gray-200 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium"
                     }`}
                 >
                   Experience
