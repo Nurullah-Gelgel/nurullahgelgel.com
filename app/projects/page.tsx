@@ -45,6 +45,12 @@ export default async function Projects() {
 }
 
 function ProjectCard({ project }: { project: Data }) {
+    const truncateOverview = (text: string, lines: number) => {
+        const words = text.split(' ');
+        const truncated = words.slice(0, lines * 10).join(' '); // Yaklaşık olarak satır başına 10 kelime
+        return words.length > lines * 10 ? `${truncated}...` : text;
+    };
+
     return (
         <article className="bg-slate-600 dark:bg-slate-700 rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 aspect-square flex flex-col border border-gray-200 dark:border-gray-700">
             <div className="p-4 flex flex-col h-full">
@@ -54,7 +60,7 @@ function ProjectCard({ project }: { project: Data }) {
                     </a>
                 </h3>
                 <p className="text-gray-200 dark:text-gray-300 mb-4 flex-grow overflow-hidden">
-                    <span className="line-clamp-8">{project.overview}</span>
+                    <span className="line-clamp-7">{truncateOverview(project.overview, 7)}</span>
                 </p>
             </div>
             <div className="mt-auto  p-3">
