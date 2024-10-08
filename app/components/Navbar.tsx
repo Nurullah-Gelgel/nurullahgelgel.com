@@ -13,13 +13,46 @@ export default function Navbar() {
       {({ open }) => (
         <>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex justify-between w-full">
-                <Link to="home" className="mt-3">
+            <div className="flex items-center justify-between h-16">
+              <div className="flex items-center justify-between w-full">
+                <Link to="home" className="flex items-center">
                   <h1 className="text-2xl font-medium text-teal-500">
                     Nurullah <span className="text-teal-500">GELGEL</span>
                   </h1>
                 </Link>
+                <div className="hidden md:flex items-center space-x-6">
+                  <Link
+                    activeClass="active"
+                    to="experience"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className={`${
+                      pathname == "../experience/page"
+                        ? "border-teal-500 text-gray-200"
+                        : "border-transparent text-white hover:text-gray-300"
+                    } cursor-pointer px-3 py-2 rounded-md text-lg font-medium transition duration-150 ease-in-out`}
+                  >
+                    Experience
+                  </Link>
+                  <Link
+                    activeClass="active"
+                    to="project"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className={`${
+                      pathname == "../projects/page"
+                        ? "border-teal-500 text-gray-200"
+                        : "border-transparent text-white hover:text-gray-300"
+                    } cursor-pointer px-3 py-2 rounded-md text-lg font-medium transition duration-150 ease-in-out`}
+                  >
+                    Projects
+                  </Link>
+                  <ThemeButton />
+                </div>
                 <div className="flex items-center md:hidden">
                   <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
@@ -36,38 +69,6 @@ export default function Navbar() {
                   </Disclosure.Button>
                 </div>
               </div>
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                <Link
-                  activeClass="active"
-                  to="experience"
-                  spy={true}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className={`${pathname == "../experience/page"
-                      ? "border-teal-500 cursor-pointer text-gray-200 mt-3 h-full inline-flex items-center px-1 border-b-2 text-lg font-medium"
-                      : "border-transparent cursor-pointer mt-3 text-white dark:text-gray-200 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium"
-                    }`}
-                >
-                  Experience
-                </Link>
-
-                <Link
-                  activeClass="active"
-                  to="project"
-                  spy={true}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className={`${pathname == "../projects/page"
-                      ? "border-teal-500 cursor-pointer text-gray-300 mt-3 dark:text-white h-full inline-flex items-center px-1 border-b-2 text-lg font-medium"
-                      : "border-transparent mt-3 cursor-pointer text-white dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium"
-                    }`}
-                >
-                  Projects
-                </Link>
-                <ThemeButton />
-              </div>
             </div>
           </div>
 
@@ -80,10 +81,11 @@ export default function Navbar() {
                 smooth={true}
                 offset={50}
                 duration={500}
-                className={`${pathname == "../experience/page"
-                    ? "bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  }`}
+                className={`${
+                  pathname == "../experience/page"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                } block px-3 py-3 rounded-md text-base font-medium`}
               >
                 Experience
               </Link>
@@ -94,10 +96,11 @@ export default function Navbar() {
                 smooth={true}
                 offset={50}
                 duration={500}
-                className={`${pathname == "../projects/page"
-                    ? "bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  }`}
+                className={`${
+                  pathname == "../projects/page"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                } block px-3 py-2 rounded-md text-base font-medium`}
               >
                 Projects
               </Link>
