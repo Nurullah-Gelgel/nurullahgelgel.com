@@ -46,9 +46,22 @@ export default async function Projects() {
 }
 
 function ProjectCard({ project }: { project: Data }) {
-    const truncateOverview = (text: string, maxLength: number) => {
-        if (text.length <= maxLength) return text;
-        return text.slice(0, maxLength).trim() + '...';
+    const truncateOverview = (text: string) => {
+        const maxLength = {
+            base: 100,  // Mobil için
+            md: 150,    // Orta boyutlu ekranlar için
+            lg: 200     // Büyük ekranlar için
+        };
+
+        if (text.length <= maxLength.lg) return text;
+        
+        return (
+            <>
+                <span className="lg:hidden">{text.slice(0, maxLength.base).trim() + '...'}</span>
+                <span className="hidden md:inline lg:hidden">{text.slice(0, maxLength.md).trim() + '...'}</span>
+                <span className="hidden lg:inline">{text.slice(0, maxLength.lg).trim() + '...'}</span>
+            </>
+        );
     };
 
     return (
@@ -60,7 +73,7 @@ function ProjectCard({ project }: { project: Data }) {
                     </a>
                 </h3>
                 <p className="text-gray-200 dark:text-gray-300 mb-4 flex-grow overflow-hidden">
-                    {truncateOverview(project.overview, 200)}
+                    {truncateOverview(project.overview)}
                 </p>
             </div>
             <div className="mt-auto  p-3">

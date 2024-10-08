@@ -14,7 +14,7 @@ interface Data {
 
 async function getExperiences() {
     const query = `
-    *[_type == "experience"] {
+    *[_type == "experience"] | order(startDate desc) {
         endDate,
         _createdAt,
         position,
@@ -28,6 +28,12 @@ async function getExperiences() {
     const data = await client.fetch(query);
     return data;
 }
+
+// Tarih formatını düzenleyen yardımcı fonksiyon
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleString('default', { month: 'long', year: 'numeric' });
+};
 
 export default async function Experience() {
     const data: Data[] = await getExperiences();
@@ -57,7 +63,9 @@ export default async function Experience() {
                                 <h3 className="text-xl font-semibold mb-1 sm:mb-0">
                                     {exp.position} @ <span className="">{exp.company}</span>
                                 </h3>
-                                <p className="text-md">{exp.startDate} / {exp.endDate || "Present"}</p>
+                                <p className="text-md">
+                                    {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : "Present"}
+                                </p>
                             </div>
                             <ul className="list-disc list-inside space-y-2">
                                 {splitSentences(exp.overview).map((sentence, index) => (
