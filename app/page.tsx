@@ -78,14 +78,14 @@ export default async function Home() {
             </div>
           </div>
           <div className="prose max-w-none prose-lg pt-8 pb-7 dark:prose-invert xl:col-span-2 ">
-            <p>
-              {user.about.split(/(?<=[.!?])\s+/).map((sentence, index) => (
-                <p key={index}>{sentence}</p>
+            <div>
+              {user.about.split('🔷').map((sentence, index) => (
+                <p key={index}>
+                  {index > 0 && <span>🔷 </span>}
+                  {sentence.trim()}
+                </p>
               ))}
-            </p>
-            <p>
-            </p>
-
+            </div>
           </div>
         </div>
       ))}
