@@ -79,7 +79,7 @@ export default async function Home() {
           </div>
           <div className="prose max-w-none prose-lg pt-8 pb-7 dark:prose-invert xl:col-span-2 ">
             <div>
-              {user.about.split('🧠').map((sentence, index) => (
+              {user.about.split('🔷').map((sentence, index) => (
                 <p key={index} className="flex items-start">
                   {index > 0 && (
                     <svg
