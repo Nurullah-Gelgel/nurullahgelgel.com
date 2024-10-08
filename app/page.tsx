@@ -80,9 +80,24 @@ export default async function Home() {
           <div className="prose max-w-none prose-lg pt-8 pb-7 dark:prose-invert xl:col-span-2 ">
             <div>
               {user.about.split('🔷').map((sentence, index) => (
-                <p key={index}>
-                  {index > 0 && <span>🔷 </span>}
-                  {sentence.trim()}
+                <p key={index} className="flex items-start">
+                  {index > 0 && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6 mr-2 flex-shrink-0 text-teal-500 dark:text-teal-400"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  )}
+                  <span>{sentence.trim()}</span>
                 </p>
               ))}
             </div>
