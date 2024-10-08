@@ -60,7 +60,7 @@ function ProjectCard({ project }: { project: Data }) {
                     </a>
                 </h3>
                 <p className="text-gray-200 dark:text-gray-300 mb-4 flex-grow overflow-hidden">
-                    {truncateOverview(project.overview, 300)}
+                    {truncateOverview(project.overview, 200)}
                 </p>
             </div>
             <div className="mt-auto  p-3">
