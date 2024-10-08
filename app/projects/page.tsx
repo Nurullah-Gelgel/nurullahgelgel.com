@@ -32,6 +32,7 @@ _id,
 
 export default async function Projects() {
     const data: Data[] = await getExperiences();
+    
     return (
         <div className="p-10 mt-10">
             <h1 className="text-3xl font-bold mb-7">Projects</h1>
@@ -45,10 +46,9 @@ export default async function Projects() {
 }
 
 function ProjectCard({ project }: { project: Data }) {
-    const truncateOverview = (text: string, lines: number) => {
-        const words = text.split(' ');
-        const truncated = words.slice(0, lines * 10).join(' '); // Yaklaşık olarak satır başına 10 kelime
-        return words.length > lines * 10 ? `${truncated}...` : text;
+    const truncateOverview = (text: string, maxLength: number) => {
+        if (text.length <= maxLength) return text;
+        return text.slice(0, maxLength).trim() + '...';
     };
 
     return (
@@ -60,7 +60,7 @@ function ProjectCard({ project }: { project: Data }) {
                     </a>
                 </h3>
                 <p className="text-gray-200 dark:text-gray-300 mb-4 flex-grow overflow-hidden">
-                    <span className="line-clamp-7">{truncateOverview(project.overview, 7)}</span>
+                    {truncateOverview(project.overview, 300)}
                 </p>
             </div>
             <div className="mt-auto  p-3">
