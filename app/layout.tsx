@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"; // Footer'ı import edin
 import { Provider } from "./components/Provider";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <Navbar />
           <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
             {children}
+            <Analytics />
           </main>
           <Footer /> {/* Footer'ı buraya ekleyin */}
         </Provider>
