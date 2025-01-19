@@ -4,6 +4,7 @@ import Experience from "./experience/page";
 import { client } from "./lib/sanity";
 import About from "./about/page";
 import Projects from "./projects/page";
+import Technologies from "./components/Technologies";
 
 interface Data {
   username: string;
@@ -110,6 +111,7 @@ export default async function Home() {
       {/* <div id="about">
         <About />
       </div> */}
+      <Technologies />
       <div id="experience">
         <Experience />
       </div>
