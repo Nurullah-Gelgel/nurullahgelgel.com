@@ -76,6 +76,15 @@ export default async function Home() {
               >
                 <path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-80.8 108.9L531.7 514.4c-7.8 6.1-18.7 6.1-26.5 0L189.6 268.9A7.2 7.2 0 01194 256h648.8a7.2 7.2 0 014.4 12.9z" />
               </svg></a>
+              <a href="https://drive.google.com/file/d/15jbYvvSxHygje9pZAfndJMmvdi91UmMv/view?usp=sharing" target="blank">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-8 h-8 text-teal-500 hover:text-teal-600"
+                >
+                  <path d="M12 16L7 11H10V4H14V11H17L12 16Z M18 20H6C5.45 20 5 19.55 5 19V15H7V18H17V15H19V19C19 19.55 18.55 20 18 20Z" />
+                </svg>
+              </a>
             </div>
           </div>
           <div className="prose max-w-none prose-lg pt-8 pb-7 dark:prose-invert xl:col-span-2 ">
