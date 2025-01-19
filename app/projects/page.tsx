@@ -48,7 +48,7 @@ export default async function Projects() {
 function ProjectCard({ project }: { project: Data }) {
     const truncateOverview = (text: string) => {
         const maxLength = {
-            base: 120,  // Mobil için
+            base: 110,  // Mobil için
             md: 180,    // Orta boyutlu ekranlar için
             lg: 245     // Büyük ekranlar için
         };
