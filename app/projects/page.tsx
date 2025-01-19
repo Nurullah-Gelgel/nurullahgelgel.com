@@ -49,7 +49,7 @@ function ProjectCard({ project }: { project: Data }) {
     const truncateOverview = (text: string) => {
         const maxLength = {
             base: 90,  // Mobil için
-            md: 130,    // Orta boyutlu ekranlar için
+            md: 90,    // Orta boyutlu ekranlar için
             lg: 245     // Büyük ekranlar için
         };
 
