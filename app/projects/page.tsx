@@ -50,7 +50,7 @@ function ProjectCard({ project }: { project: Data }) {
         const maxLength = {
             base: 120,  // Mobil için
             md: 180,    // Orta boyutlu ekranlar için
-            lg: 260     // Büyük ekranlar için
+            lg: 250     // Büyük ekranlar için
         };
 
         if (text.length <= maxLength.lg) return text;
