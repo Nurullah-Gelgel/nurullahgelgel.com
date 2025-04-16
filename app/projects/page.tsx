@@ -48,9 +48,9 @@ export default async function Projects() {
 function ProjectCard({ project }: { project: Data }) {
     const truncateOverview = (text: string) => {
         const maxLength = {
-            base: 90,  // Mobil için
-            md: 90,    // Orta boyutlu ekranlar için
-            lg: 245     // Büyük ekranlar için
+            base: 150,
+            md: 200,
+            lg: 350
         };
 
         if (text.length <= maxLength.lg) return text;
@@ -65,25 +65,34 @@ function ProjectCard({ project }: { project: Data }) {
     };
 
     return (
-        <article className="bg-slate-600 dark:bg-slate-700 rounded-lg shadow-md hover:shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 aspect-square flex flex-col border border-gray-200 dark:border-gray-700">
-            <div className="p-4 flex flex-col h-full">
-                <h3 className="text-xl font-semibold mb-2 text-teal-400 dark:text-teal-400 truncate">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                        {project.title}
+        <article className="bg-slate-600 dark:bg-slate-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-[400px] flex flex-col border border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col h-full">
+                {/* Başlık Bölümü */}
+                <div className="p-4 border-b border-gray-600">
+                    <h3 className="text-xl font-semibold text-teal-400 dark:text-teal-400 truncate">
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            {project.title}
+                        </a>
+                    </h3>
+                </div>
+                
+                {/* İçerik Bölümü */}
+                <div className="p-4 flex-grow overflow-y-auto">
+                    <p className="text-gray-200 dark:text-gray-300">
+                        {truncateOverview(project.overview)}
+                    </p>
+                </div>
+                
+                {/* Buton Bölümü */}
+                <div className="p-4 mt-auto border-t border-gray-600">
+                    <a href={project.link} 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       className="inline-flex items-center justify-center w-full py-2 px-4 font-medium text-white bg-teal-600 hover:bg-teal-700 rounded-md transition-colors duration-300">
+                        Learn more
+                        <span className="ml-2">&rarr;</span>
                     </a>
-                </h3>
-                <p className="text-gray-200 dark:text-gray-300 mb-4 flex-grow overflow-hidden">
-                    {truncateOverview(project.overview)}
-                </p>
-            </div>
-            <div className="mt-auto  p-3">
-                <a href={project.link} 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   className="inline-flex items-center justify-center w-full py-2 px-4  font-medium text-white bg-teal-600 hover:bg-teal-700 rounded-md transition-colors duration-300">
-                    Learn more
-                    <span className="ml-2">&rarr;</span>
-                </a>
+                </div>
             </div>
         </article>
     );
