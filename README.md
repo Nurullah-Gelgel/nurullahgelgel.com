@@ -20,17 +20,50 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Proje Kurulumu ve Çalıştırma
 
-To learn more about Next.js, take a look at the following resources:
+### Ana Web Uygulaması
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Bağımlılıkları yükleyin:
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Geliştirme sunucusunu başlatın:
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+Uygulama http://localhost:3000 adresinde çalışmaya başlayacaktır.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Sanity CMS Kurulumu
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Sanity klasörüne gidin:
+```bash
+cd sanity
+```
+
+2. Sanity bağımlılıklarını yükleyin:
+```bash
+npm install
+```
+
+3. Sanity geliştirme sunucusunu başlatın:
+```bash
+npm run dev
+```
+
+Sanity Studio http://localhost:3333 adresinde çalışmaya başlayacaktır.
+
+### Önemli Gereksinimler
+
+- Node.js ve npm'in bilgisayarınızda kurulu olması gerekir
+- Sanity CMS için bir hesap oluşturmanız gerekebilir
+- `.env` dosyasında aşağıdaki yapılandırmaların olması gerekir:
+  - Sanity Project ID
+  - Sanity Dataset
+  - Sanity API Token (gerekirse)
+
+
+
+
