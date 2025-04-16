@@ -48,9 +48,9 @@ export default async function Projects() {
 function ProjectCard({ project }: { project: Data }) {
     const truncateOverview = (text: string) => {
         const maxLength = {
-            base: 500,
-            md: 500,
-            lg: 500
+            base: 800,
+            md: 800,
+            lg: 800
         };
 
         if (text.length <= maxLength.lg) return text;
