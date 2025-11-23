@@ -2,35 +2,35 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"; // Footer'ı import edin
+import Footer from "./components/Footer";
 import { Provider } from "./components/Provider";
 import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nurullah Gelgel",
-  description: "Nurullah Gelgel's personal website",
+  title: "Nurullah Gelgel | Software Engineer",
+  description: "Nurullah Gelgel's personal portfolio website.",
+  
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-gray-300 text-gray-900 dark:bg-customDark dark:text-gray-100 h-full selection:bg-gray-50 dark:selection:bg-blue-800 flex flex-col min-h-screen`}>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <body className={`${inter.className} bg-[#050505] text-slate-200 antialiased selection:bg-teal-500/30 selection:text-teal-200 h-full flex flex-col min-h-screen`}>
         <Provider>
+
           <Navbar />
-          <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
+          <main className="flex-grow w-full mx-auto relative z-10">
             {children}
             <Analytics />
           </main>
-          <Footer /> {/* Footer'ı buraya ekleyin */}
+          <Footer />
         </Provider>
       </body>
     </html>
   );
 }
-

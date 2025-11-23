@@ -9,14 +9,15 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
-        customDark: '#3C3D37', // Özel renk tanımı
+        background: '#0a0a0a', // Çok koyu gri/siyah
+        card: 'rgba(255, 255, 255, 0.05)', // Glass effect için
+        primary: '#14b8a6', // Teal
+        secondary: '#a855f7', // Purple
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      }
     },
   },
   plugins: ["@tailwindcss/typography", require("@tailwindcss/forms")],

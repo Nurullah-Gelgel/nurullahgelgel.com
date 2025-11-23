@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Nurullah from "../public/me.jpeg";
+import Nurullah from "../public/me.jpeg"; 
 import Experience from "./experience/page";
 import { client } from "./lib/sanity";
-import About from "./about/page";
 import Projects from "./projects/page";
 import Technologies from "./components/Technologies";
 
@@ -17,117 +16,124 @@ interface Data {
   _id: string;
   _updatedAt: string;
   title: string;
-
-
 }
 
 async function getUser() {
-  const query = `
- *[_type == "userInfo"] {
-  username,
-image,
-overview,
-_createdAt,
-_type,
-about,
-technolgies,
-_id,
-_updatedAt,
-title
-}`;
+  const query = `*[_type == "userInfo"] { username, image, overview, _createdAt, _type, about, technolgies, _id, _updatedAt, title }`;
   const data = await client.fetch(query);
   return data;
 }
 
 export default async function Home() {
   const data: Data[] = await getUser();
+  const user = data[0]; 
 
   return (
-    <div className="divide-y divide-gray-700 dark:divide-gray-300">
-      <div className="space-y-2 pt-5 pb-8 md:space-x-5">
-        {/* <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl
-        sm:leading-10 md:text-6xl md:leading-13 ">Home </h1> */}
-      </div>
-      {data.map((user) => (
-        <div key={user._id}  className="items-center space-y-2 mb-20 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
-          <div className="flex flex-col items-center pt-8">
-            <Image alt="Picture of Nurullah Gelgel" src={Nurullah} className="h-48 w-48 rounded-full object-cover object-top" />
-            <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">{user.username}</h3>
-            <p className=" dark:text-gray-300 text-center">{user.title}</p>
-            <div className="flex space-x-5 pt-6">
-              <a href="https://github.com/Nurullah-Gelgel" target="blank"> <svg
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                className="w-8 h-8 text-teal-500 hover:text-teal-600"
-              >
-                <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z" />
-              </svg></a>
-              <a href="https://www.linkedin.com/in/nurullah-gelgel/" target="blank">  <svg
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                className="w-8 h-8 text-teal-500 hover:text-teal-600"
-              >
-                <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM349.3 793.7H230.6V411.9h118.7v381.8zm-59.3-434a68.8 68.8 0 1168.8-68.8c-.1 38-30.9 68.8-68.8 68.8zm503.7 434H675.1V608c0-44.3-.8-101.2-61.7-101.2-61.7 0-71.2 48.2-71.2 98v188.9H423.7V411.9h113.8v52.2h1.6c15.8-30 54.5-61.7 112.3-61.7 120.2 0 142.3 79.1 142.3 181.9v209.4z" />
-              </svg></a>
-              <a href="mailto:nurullahgelgel@outlook.com" target="blank"> <svg
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                className="w-8 h-8 text-teal-500 hover:text-teal-600"
-              >
-                <path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-80.8 108.9L531.7 514.4c-7.8 6.1-18.7 6.1-26.5 0L189.6 268.9A7.2 7.2 0 01194 256h648.8a7.2 7.2 0 014.4 12.9z" />
-              </svg></a>
-              {/* CV Drive Link */}
-              <a href="https://drive.google.com/file/d/1eRxvisXORxXFdrEMR7SSV2rskgwkAZZV/view?usp=sharing" target="blank">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-8 h-8 text-teal-500 hover:text-teal-600"
+    <main className="min-h-screen bg-[#050505] text-slate-200 selection:bg-teal-500 selection:text-white overflow-hidden font-sans">
+      
+      <section className="relative pt-32 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between min-h-[85vh]">
+        
+        <div className="absolute top-20 left-10 w-72 h-72 bg-teal-500/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+
+        <div className="md:w-1/2 z-10 text-center md:text-left space-y-6">
+            <h2 className="text-teal-400 font-medium tracking-widest text-sm uppercase">
+                Hello, I'm
+            </h2>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-300 to-slate-500">
+              
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-300 to-slate-400 drop-shadow-[0_0_25px_rgba(20,184,166,0.4)]">
+                {user?.username}
+                </span>
+            </h1>
+            <p className="text-gray-400 text-lg max-w-lg mx-auto md:mx-0 leading-relaxed">
+                As a <span className="text-gray-200 font-semibold">{user?.title}</span>, architecting scalable solutions across Spring Boot and .NET ecosystems, brought to life with dynamic React interfaces.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start pt-4">
+                <a 
+                    href="#project" 
+                    className="group relative px-8 py-4 rounded-full bg-teal-600 text-white font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]"
                 >
-                  <path d="M12 16L7 11H10V4H14V11H17L12 16Z M18 20H6C5.45 20 5 19.55 5 19V15H7V18H17V15H19V19C19 19.55 18.55 20 18 20Z" />
-                </svg>
-              </a>
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+                    <span>View My Work</span>
+                </a>
+                
+                <a 
+                    href="https://drive.google.com/file/d/1oPSL3dffxRv2rJaVtWNs6yu1Kl3E3sv8/view?usp=drive_link" 
+                    target="_blank" 
+                    className="px-8 py-4 rounded-full border border-gray-700 bg-white/5 backdrop-blur-md text-gray-300 hover:bg-white/10 hover:border-gray-500 hover:text-white transition-all"
+                >
+                    Download CV
+                </a>
             </div>
-          </div>
-          <div className="prose max-w-none prose-lg pt-8 pb-7 dark:prose-invert xl:col-span-2 ">
-            <div>
-              {user.about.split('🔷').map((sentence, index) => (
-                <p key={index} className="flex items-start">
-                  {index > 0 && (
-                    <svg
-                      className="w-6 h-6 mr-2 flex-shrink-0 text-teal-500 dark:text-teal-400"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 12H5m14 0-4 4m4-4-4-4"
-                      />
-                    </svg>
-                  )}
-                  <span>{sentence.trim()}</span>
-                </p>
-              ))}
-            </div>
-          </div>
         </div>
-      ))}
-      {/* <div id="about">
-        <About />
-      </div> */}
-      <Technologies />
-      <div id="experience">
-        <Experience />
-      </div>
-      <div id="project">
-        <Projects />
-      </div>
-    </div>
+
+        <div className="md:w-1/2 mt-16 md:mt-0 flex justify-center z-10 relative">
+             <div className="relative w-72 h-72 md:w-56 md:h-56 group">
+                <div className="absolute -inset-1 bg-gradient-to-tr from-teal-500 to-teal-600 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/5 shadow-2xl">
+                    <Image 
+                        src={Nurullah} 
+                        alt={user?.username || "Profile Picture"} 
+                        fill
+                        className="object-cover object-top hover:scale-110 transition-transform duration-700"
+                        priority
+                    />
+                </div>
+             </div>
+        </div>
+      </section>
+
+      <section className="py-24 max-w-7xl mx-auto px-6 relative" id="about">
+         <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-8 bg-[#0f0f0f]/50 border border-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-12 hover:border-teal-500/20 transition-all duration-500 group">
+                <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                    <span className="w-12 h-1 bg-gradient-to-r from-teal-500 to-teal-500 rounded-full"></span>
+                    About Me
+                </h3>
+                <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+                    {user?.about ? (
+                        user.about.split('🔷').map((sentence, index) => (
+                            <p key={index} className="flex gap-3">
+                                {index > 0 && <span className="text-teal-500 mt-1.5">▹</span>}
+                                {sentence.trim()}
+                            </p>
+                        ))
+                    ) : (
+                        <p>Loading bio...</p>
+                    )}
+                </div>
+                <div className="flex gap-4 mt-10">
+                    <a href="https://github.com/Nurullah-Gelgel" target="_blank" className="p-4 bg-white/5 rounded-2xl hover:bg-teal-500 hover:text-white transition-all">
+                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nurullah-gelgel/" target="_blank" className="p-4 bg-white/5 rounded-2xl hover:bg-[#0077b5] hover:text-white transition-all">
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:nurullahgelgel@outlook.com" className="p-4 bg-white/5 rounded-2xl hover:bg-green-600 hover:text-white transition-all">
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </a>
+                </div>
+            </div>
+            <div className="md:col-span-4 h-full">
+                <Technologies /> 
+            </div>
+         </div>
+      </section>
+
+
+      <section id="project" className="relative">
+         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+         <Projects />
+      </section>
+
+
+      <section id="experience" className="relative pb-20">
+         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+         <Experience />
+      </section>
+
+    </main>
   );
 }
