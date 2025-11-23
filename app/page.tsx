@@ -38,7 +38,7 @@ export default async function Home() {
 
         <div className="md:w-1/2 z-10 text-center md:text-left space-y-6">
             <h2 className="text-teal-400 font-medium tracking-widest text-sm uppercase">
-                Hello, I'm
+            Hello, I&apos;m
             </h2>
             <h1 className="text-5xl md:text-7xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-300 to-slate-500">
               
