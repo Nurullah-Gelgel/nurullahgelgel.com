@@ -64,7 +64,7 @@ export default async function Home() {
                     target="_blank" 
                     className="px-8 py-4 rounded-full border border-gray-700 bg-white/5 backdrop-blur-md text-gray-300 hover:bg-white/10 hover:border-gray-500 hover:text-white transition-all"
                 >
-                    Download CV
+                    Download CV 
                 </a>
             </div>
         </div>
