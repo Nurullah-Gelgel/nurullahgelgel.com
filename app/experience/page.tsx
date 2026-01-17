@@ -10,8 +10,7 @@ interface Data {
     overview: string;
     company: string;
     _id: string;
-}   
-
+}  
 async function getExperiences() {
     const query = `
     *[_type == "experience"] | order(startDate desc) {
