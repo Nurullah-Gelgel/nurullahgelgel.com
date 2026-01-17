@@ -10,7 +10,7 @@ interface Data {
     overview: string;
     company: string;
     _id: string;
-}
+}   
 
 async function getExperiences() {
     const query = `
